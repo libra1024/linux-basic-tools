@@ -132,7 +132,8 @@ step "1/${TOTAL_STEPS} ─ Detectando sistema operativo"
 if [[ -f /etc/os-release ]]; then
     source /etc/os-release
     OS_ID="${ID,,}"
-    OS_ID_LIKE="${ID_LIKE,,:-}"
+    OS_ID_LIKE="${ID_LIKE:-}"
+    OS_ID_LIKE="${OS_ID_LIKE,,}"
     OS_PRETTY="${PRETTY_NAME}"
 else
     fail "No se encontró /etc/os-release. Sistema no soportado."
